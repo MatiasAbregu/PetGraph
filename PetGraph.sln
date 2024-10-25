@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetGraph", "PetGraph\PetGraph.csproj", "{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetGraphBackend", "PetGraphBackend\PetGraphBackend.csproj", "{8E38C196-F2AD-42FA-BD68-7974C376B8A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E38C196-F2AD-42FA-BD68-7974C376B8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E38C196-F2AD-42FA-BD68-7974C376B8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E38C196-F2AD-42FA-BD68-7974C376B8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E38C196-F2AD-42FA-BD68-7974C376B8A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

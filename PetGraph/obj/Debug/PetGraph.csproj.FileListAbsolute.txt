@@ -9,3 +9,17 @@ C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.exe
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.pdb
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.Inicio.resources
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.MascotasForm.resources
+D:\Proyectos\PethGraph\PetGraph\bin\Debug\PetGraph.exe.config
+D:\Proyectos\PethGraph\PetGraph\bin\Debug\PetGraph.exe
+D:\Proyectos\PethGraph\PetGraph\bin\Debug\PetGraph.pdb
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.csproj.AssemblyReference.cache
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.Inicio.resources
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.MascotasForm.resources
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.Properties.Resources.resources
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.csproj.GenerateResource.cache
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.csproj.CoreCompileInputs.cache
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.exe
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.pdb
+D:\Proyectos\PethGraph\PetGraph\bin\Debug\PetGraphBackend.dll
+D:\Proyectos\PethGraph\PetGraph\bin\Debug\PetGraphBackend.pdb
+D:\Proyectos\PethGraph\PetGraph\obj\Debug\PetGraph.csproj.Up2Date

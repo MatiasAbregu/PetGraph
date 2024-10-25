@@ -1,0 +1,8 @@
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.AssemblyReference.cache
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.Properties.Resources.resources
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.GenerateResource.cache
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.CoreCompileInputs.cache
+D:\Proyectos\PethGraph\PetGraphBackend\bin\Debug\PetGraphBackend.dll
+D:\Proyectos\PethGraph\PetGraphBackend\bin\Debug\PetGraphBackend.pdb
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.dll
+D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.pdb

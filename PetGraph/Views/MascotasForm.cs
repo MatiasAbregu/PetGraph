@@ -14,8 +14,7 @@ namespace PetGraph
     {
         public MascotasForm()
         {
-            ConfiguracionTemas.EstablecerTema(this);
-            InitializeComponent();
+            InitializeComponent();   
         }
     }
 }

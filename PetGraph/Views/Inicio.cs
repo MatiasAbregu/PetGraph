@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PetGraph
 {
     public partial class Inicio : Form
@@ -16,13 +17,13 @@ namespace PetGraph
         public Inicio()
         {
             InitializeComponent();
-            ConfiguracionTemas.EstablecerTema(this, true);
+            ConfiguracionTemas.EstablecerTema(this);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ConfiguracionTemas.EstablecerLogoTema(pictureBox1);
-            ConfiguracionTemas.EstablecerTema(this, true);
+            ConfiguracionTemas.EstablecerLogoTema(pictureBox1);  
+            ConfiguracionTemas.EstablecerTema(this , true); 
         }
 
         private void MouseLeave(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace PetGraph
         {
             MascotasForm mascotasForm = new MascotasForm();
             ConfiguracionTemas.EstablecerTema(mascotasForm);
-            mascotasForm.ShowDialog();
+            mascotasForm.Show();
         }
     }
 }

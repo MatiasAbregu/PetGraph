@@ -165,5 +165,11 @@
   <ItemGroup>
     <None Include="Resources\melbaBackground.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dogMovement.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuracionLogo.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

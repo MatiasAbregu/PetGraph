@@ -42,6 +42,7 @@
             this.Name = "GraphForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PetGraph - ¡Juega!";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GraphForm_Paint);
             this.ResumeLayout(false);
 
         }

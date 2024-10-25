@@ -11,11 +11,12 @@ namespace PetGraph
 {
     public static class ConfiguracionTemas
     {
-        private static bool tema = true; 
+        private static bool tema = true;
         private static bool logo = true;
 
 
-        public static void EstablecerTema(Form formulario, bool cambioTema = false)
+        public static void EstablecerTema(Form formulario, bool cambioTema = false,
+            PictureBox animal = null)
         {
             if (cambioTema) tema = !tema;
             formulario.BackColor = tema ? Color.White : Color.FromArgb(30, 30, 30);
@@ -30,6 +31,26 @@ namespace PetGraph
                 {
                     controlTemp.BackColor = tema ? Color.FromArgb(30, 30, 30) : Color.White;
                     controlTemp.ForeColor = tema ? Color.White : Color.FromArgb(30, 30, 30);
+                }
+
+                if (controlTemp is Panel)
+                {
+                    foreach (Control controlTemp2 in controlTemp.Controls)
+                    {
+                        if (!controlTemp2.Name.Equals("labelCerrar"))
+                        {
+                            controlTemp2.ForeColor = tema ? Color.FromArgb(30, 30, 30) : Color.White;
+                        }
+                    }
+                }
+
+                if (animal != null)
+                {
+                    if (tema)
+                        animal.Image = PetGraphBackend.Properties.Resources.dogStart;
+                    else
+                        animal.Image = PetGraphBackend.Properties.Resources.catlogo;
+
                 }
             }
         }

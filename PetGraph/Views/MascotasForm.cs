@@ -20,14 +20,17 @@ namespace PetGraph
             InitializeComponent();
             pictureBox1.BringToFront();
             this.player = player;
-            player.namePlayer = "Melba";
-            player.imgAnimal = Properties.Resources.dogStart;
+            if(player.namePlayer == null)
+            {
+                player.namePlayer = "Melba";
+                player.imgAnimal = Properties.Resources.dogStart;
+            }
             SetLabelAndImage();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReproductorSonidos.reproducirSonido("menu-select.mp3");
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
             this.Close();
         }
 
@@ -43,7 +46,7 @@ namespace PetGraph
 
         private void MouseEnter(object sender, EventArgs e)
         {
-            ReproductorSonidos.reproducirSonido("menu-move.mp3");
+            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
             Cursor = Cursors.Hand;
             if (sender is PictureBox)
             {
@@ -65,7 +68,7 @@ namespace PetGraph
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ReproductorSonidos.reproducirSonido("menu-select.mp3");
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
             player.namePlayer = "Melba";
             player.imgAnimal = Properties.Resources.dogStart;
             SetLabelAndImage();
@@ -73,7 +76,7 @@ namespace PetGraph
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            ReproductorSonidos.reproducirSonido("menu-select.mp3");
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
             player.namePlayer = "Chuchi";
             player.imgAnimal = Properties.Resources.catlogo;
             SetLabelAndImage();
@@ -81,7 +84,7 @@ namespace PetGraph
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ReproductorSonidos.reproducirSonido("menu-select.mp3");
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
             player.namePlayer = "Pilochín";
             player.imgAnimal = Properties.Resources.piglogo;
             SetLabelAndImage();

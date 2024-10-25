@@ -1,4 +1,5 @@
 ﻿using NAudio.Wave;
+using PetGraphBackend.Objetos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,20 +13,38 @@ namespace PetGraphBackend.Configs
     public static class ReproductorSonidos
     {
 
-        private static IWavePlayer waveOut;
-        private static AudioFileReader audioReader;
+        private static IWavePlayer waveOutOnce, waveOutLoop;
+        private static AudioFileReader audioReaderOnce, audioReaderLoop;
 
-        public static void reproducirSonido(string tipoSonido = "")
+        public static void ReproducirSonido(string tipoSonido = "")
         {
-            waveOut?.Stop();
-            waveOut?.Dispose();
-            audioReader?.Dispose();
+            waveOutOnce?.Stop();
+            waveOutOnce?.Dispose();
+            audioReaderOnce?.Dispose();
 
-            waveOut = new WaveOut();
+            waveOutOnce = new WaveOutEvent();
             string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, tipoSonido);
-            audioReader = new AudioFileReader(ruta);
-            waveOut.Init(audioReader);
-            waveOut.Play();
+            audioReaderOnce = new AudioFileReader(ruta);
+            waveOutOnce.Init(audioReaderOnce);
+            waveOutOnce.Play();
+        }
+
+        public static void ReproducirMusica(string tipoMusica = "")
+        {
+            waveOutLoop?.Stop();
+            waveOutLoop?.Dispose();
+            audioReaderLoop?.Dispose();
+
+            waveOutLoop = new WaveOutEvent();
+            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, tipoMusica);
+            audioReaderLoop = new AudioFileReader(ruta);
+            waveOutLoop.Init(new LoopStream(audioReaderLoop));
+            waveOutLoop.Play();
+        }
+
+        public static void EstablecerVolumen(float volumen = 1f)
+        {
+            waveOutLoop.Volume = volumen;
         }
     }
 }

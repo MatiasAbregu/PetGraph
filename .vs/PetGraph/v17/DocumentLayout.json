@@ -1,26 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Proyectos\\PethGraph\\",
+  "WorkspaceRootPath": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|d:\\proyectos\\pethgraph\\petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|d:\\proyectos\\pethgraph\\petgraph\\views\\mascotasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\mascotasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\mascotasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|d:\\proyectos\\pethgraph\\petgraph\\views\\mascotasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\mascotasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E38C196-F2AD-42FA-BD68-7974C376B8A7}|PetGraphBackend\\PetGraphBackend.csproj|d:\\proyectos\\pethgraph\\petgraphbackend\\configs\\configuraciontemas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E38C196-F2AD-42FA-BD68-7974C376B8A7}|PetGraphBackend\\PetGraphBackend.csproj|solutionrelative:petgraphbackend\\configs\\configuraciontemas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E38C196-F2AD-42FA-BD68-7974C376B8A7}|PetGraphBackend\\PetGraphBackend.csproj|d:\\proyectos\\pethgraph\\petgraphbackend\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E38C196-F2AD-42FA-BD68-7974C376B8A7}|PetGraphBackend\\PetGraphBackend.csproj|solutionrelative:petgraphbackend\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,21 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Inicio.cs",
-              "DocumentMoniker": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\Inicio.cs",
-              "RelativeDocumentMoniker": "PetGraph\\Views\\Inicio.cs",
-              "ToolTip": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\Inicio.cs",
-              "RelativeToolTip": "PetGraph\\Views\\Inicio.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwDAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T14:46:45.734Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -55,59 +37,42 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConfiguracionTemas.cs",
-              "DocumentMoniker": "D:\\Proyectos\\PethGraph\\PetGraphBackend\\Configs\\ConfiguracionTemas.cs",
-              "RelativeDocumentMoniker": "PetGraphBackend\\Configs\\ConfiguracionTemas.cs",
-              "ToolTip": "D:\\Proyectos\\PethGraph\\PetGraphBackend\\Configs\\ConfiguracionTemas.cs",
-              "RelativeToolTip": "PetGraphBackend\\Configs\\ConfiguracionTemas.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBMAAAApAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "GraphForm.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
+              "RelativeDocumentMoniker": "PetGraph\\Views\\GraphForm.cs",
+              "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
+              "RelativeToolTip": "PetGraph\\Views\\GraphForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T01:53:27.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\Proyectos\\PethGraph\\PetGraphBackend\\Class1.cs",
-              "RelativeDocumentMoniker": "PetGraphBackend\\Class1.cs",
-              "ToolTip": "D:\\Proyectos\\PethGraph\\PetGraphBackend\\Class1.cs",
-              "RelativeToolTip": "PetGraphBackend\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T01:51:38.316Z",
+              "WhenOpened": "2024-10-25T05:24:59.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MascotasForm.cs",
-              "DocumentMoniker": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\MascotasForm.cs",
-              "RelativeDocumentMoniker": "PetGraph\\Views\\MascotasForm.cs",
-              "ToolTip": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\MascotasForm.cs",
-              "RelativeToolTip": "PetGraph\\Views\\MascotasForm.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Title": "GraphForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
+              "RelativeDocumentMoniker": "PetGraph\\Views\\GraphForm.cs",
+              "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PetGraph\\Views\\GraphForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T02:02:29.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T05:23:29.622Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MascotasForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\MascotasForm.cs",
+              "Title": "MascotasForm.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\MascotasForm.cs",
               "RelativeDocumentMoniker": "PetGraph\\Views\\MascotasForm.cs",
-              "ToolTip": "D:\\Proyectos\\PethGraph\\PetGraph\\Views\\MascotasForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PetGraph\\Views\\MascotasForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\MascotasForm.cs",
+              "RelativeToolTip": "PetGraph\\Views\\MascotasForm.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAIwFMAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T18:29:15.542Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-10-25T05:22:36.578Z",
+              "EditorCaption": ""
             }
           ]
         }

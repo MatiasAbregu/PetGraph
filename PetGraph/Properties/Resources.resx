@@ -121,7 +121,25 @@
   <data name="moongif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tumblr_odg08zhUOg1qjg55go1_500.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dogStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dogStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sungif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixel-art-sun.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="catlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chuchiBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chuchiBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="melbaBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\melbaBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picholinBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picholinBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="piglogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piglogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

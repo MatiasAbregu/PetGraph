@@ -24,6 +24,11 @@ namespace PetGraph
         public Inicio()
         {
             InitializeComponent();
+            if (player.namePlayer == null)
+            {
+                player.namePlayer = "Melba";
+                player.imgAnimal = Properties.Resources.dogStart;
+            }
             ReproductorSonidos.ReproducirMusica("title-theme.mp3");
             ReproductorSonidos.EstablecerVolumen();
             ConfiguracionTemas.EstablecerTema(this);
@@ -74,10 +79,15 @@ namespace PetGraph
         private void button1_Click(object sender, EventArgs e)
         {
             ReproductorSonidos.ReproducirSonido("menu-select.mp3");
-            GraphForm graphForm = new GraphForm();
+            Alerta.Show();
+ 
+            GraphForm graphForm = new GraphForm(player);
             ConfiguracionTemas.EstablecerTema(graphForm);
-            Hide();
-            graphForm.FormClosing += (s, ev) => this.Show();
+            graphForm.FormClosing += (s, ev) => 
+            {
+                this.Show();
+                ReproductorSonidos.ReproducirMusica("title-theme.mp3");
+            };
             graphForm.Show();
         }
 

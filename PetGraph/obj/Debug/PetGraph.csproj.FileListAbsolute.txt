@@ -47,3 +47,4 @@ C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\NAudio.WinForms.x
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\NAudio.WinMM.xml
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\System.Security.AccessControl.xml
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.Views.Alerta.resources

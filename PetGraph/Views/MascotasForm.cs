@@ -20,11 +20,6 @@ namespace PetGraph
             InitializeComponent();
             pictureBox1.BringToFront();
             this.player = player;
-            if(player.namePlayer == null)
-            {
-                player.namePlayer = "Melba";
-                player.imgAnimal = Properties.Resources.dogStart;
-            }
             SetLabelAndImage();
         }
 

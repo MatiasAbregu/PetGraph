@@ -123,6 +123,16 @@ namespace PetGraph.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap map_icon {
+            get {
+                object obj = ResourceManager.GetObject("map-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap melbaBackground {
             get {
                 object obj = ResourceManager.GetObject("melbaBackground", resourceCulture);

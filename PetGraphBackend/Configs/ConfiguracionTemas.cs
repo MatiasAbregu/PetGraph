@@ -59,5 +59,11 @@ namespace PetGraph
             pictureBox.Image = logo ? PetGraphBackend.Properties.Resources.moongif : PetGraphBackend.Properties.Resources.sungif;
             logo = !logo;
         }
+
+        public static Color ObtenerColorParaGrafica()
+        {
+            if (tema) return Color.FromArgb(30, 30, 30);
+            else return Color.White;
+        }
     }
 }

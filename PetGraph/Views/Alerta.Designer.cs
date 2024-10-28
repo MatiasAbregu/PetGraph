@@ -52,7 +52,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(125, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(518, 100);
+            this.label3.Size = new System.Drawing.Size(538, 100);
             this.label3.TabIndex = 7;
             this.label3.Text = resources.GetString("label3.Text");
             // 

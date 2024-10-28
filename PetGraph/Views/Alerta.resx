@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>Estás a punto de jugar un videojuego didáctico, el cuál está inspirado
-en producto cartesiano y consiste en marcar puntos o dibujar una recta
-en las coordenadas cartesianas... ¡Mientras más aciertes más puntos
-conseguirás, asi que... buena suerte y divertete!</value>
+    <value>¡Estás a punto de jugar un videojuego didáctico, el cuál está inspirado
+en ejes cartesianos y el producto cartesiano! Tu misión será marcar
+puntos o trazar una recta en el plano cartesiano... ¡Mientras más aciertes 
+más puntos conseguirás! Asi que... ¡Buena suerte y divertete!</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

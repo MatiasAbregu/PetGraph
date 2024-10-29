@@ -104,10 +104,10 @@
     <None Include="Resources\menu-select.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\catlogo.png" />
+    <None Include="Resources\dogStart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dogStart.png" />
+    <None Include="Resources\catlogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

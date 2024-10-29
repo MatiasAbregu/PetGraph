@@ -179,9 +179,6 @@
     <None Include="Resources\chuchiBackground.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\catlogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\melbaBackground.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enter-flecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catlogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

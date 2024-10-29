@@ -82,7 +82,7 @@ namespace PetGraph.Views
             double[] numeroXNegativos = obtenerNumerosX().Where(n => n < 0).ToArray();
 
             // FRAN HACE ESTO, NECESTIO QUE ACOMODES POR LONGITUD DE TEXTO O POR NUMEROS EL TEXTO, QUE
-            // QUEDE LO ´MÁS PAREJO POSIBLE
+            // QUEDE LO MÁS PAREJO POSIBLE
             // La parte de   new Point(Ox1 - (70 * (5 - lineas)) - 14, 375)); es donde se modifica la long
             for (int lineas = 0; lineas < 5; lineas++)
             {
@@ -112,7 +112,7 @@ namespace PetGraph.Views
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 + inicioY), new Point(Ox1 + 13, Ay1 + inicioY));
                 g.DrawString(numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroYNegativos[lineas] < -9 ? Ox1 - 43 : Ox1 - 40,
+                    new Point(numeroYNegativos[lineas] < -9 ? Ox1 - 43 : Ox1 - 37,
                     Ay1 + (70 * (4 - lineas)) - 10));
                 inicioY += 70;
             }
@@ -193,10 +193,11 @@ namespace PetGraph.Views
         public double[] obtenerNumerosY()
         {
             if (zoomY == 1) return new double[] { -8, -7, -6, -5, 0, 5, 6, 7, 8 };
-            else if(zoomY == 2) return new double[] { -12, -11, -10, -9, 0, 9, 10, 11, 12 };
-            else if(zoomY == 3) return new double[] { -16, -15, -14, -13, 0, 13, 14, 15, 16 };
-            else if(zoomY == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, 0, 0.6, 0.7, 0.8, 0.9 };
+            else if (zoomY == 2) return new double[] { -12, -11, -10, -9, 0, 9, 10, 11, 12 };
+            else if (zoomY == 3) return new double[] { -16, -15, -14, -13, 0, 13, 14, 15, 16 };
+            else if (zoomY == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, 0, 0.6, 0.7, 0.8, 0.9 };
             else if (zoomY == -2) return new double[] { -0.5, -0.4, -0.3, -0.2, 0, 0.2, 0.3, 0.4, 0.5 };
+            else if (zoomY == -3) return new double[] { 0, 0, 0, -0.1, 0, 0.1, 0, 0, 0 };
             else return new double[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
         }
 

@@ -20,7 +20,7 @@ namespace PetGraph.Views
         private bool teclaPresionadaR = false, teclaPresionadaL = false,
             teclaPresionadaU = false, teclaPresionadaD = false, teclaPresionadaEnter = false;
         private int playerX = 5, playerY = 4; // hasta 9 que es longitud de vector
-        private int numeroLabel = 0, zoomX = 0, zoomY = 0;
+        private int numeroLabel = 0, zoomX = 0, zoomY = 0, puntaje = 0;
 
         public GraphForm(Player player)
         {
@@ -28,7 +28,6 @@ namespace PetGraph.Views
             ReproductorSonidos.ReproducirMusica("graph-theme.mp3");
             pictureBox1.Image = player.imgAnimal;
             Text = $"PetGraph - ¡Juega con {player.namePlayer}!";
-            panel1.Location = new Point(445 - 30, 355 - 35);
             label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
         }
 
@@ -81,20 +80,18 @@ namespace PetGraph.Views
             double[] numeroXPositivos = obtenerNumerosX().Where(n => n > 0).ToArray();
             double[] numeroXNegativos = obtenerNumerosX().Where(n => n < 0).ToArray();
 
-            // FRAN HACE ESTO, NECESTIO QUE ACOMODES POR LONGITUD DE TEXTO O POR NUMEROS EL TEXTO, QUE
-            // QUEDE LO MÁS PAREJO POSIBLE
-            // La parte de   new Point(Ox1 - (70 * (5 - lineas)) - 14, 375)); es donde se modifica la long
             for (int lineas = 0; lineas < 5; lineas++)
             {
                 g.DrawLine(pen, new Point(Ox1 - inicioX, 345), new Point(Ox1 - inicioX, 365));
                 g.DrawString(numeroXNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(Ox1 - (70 * (5 - lineas)) - 14, 375));
+                    new Point(numeroXNegativos[lineas] < -9 ? Ox1 - (70 * (5 - lineas)) - 16 :
+                    Ox1 - (70 * (5 - lineas)) - 14 , 375));
 
                 g.DrawLine(pen, new Point(Ox1 + inicioX, 345), new Point(Ox1 + inicioX, 365));
                 g.DrawString(numeroXPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(Ox1 + inicioX - 6, 375));
+                    new Point(numeroXPositivos[lineas] > 9 ? Ox1 + inicioX - 9 : Ox1 + inicioX - 6, 375));
                 inicioX += 70;
             }
 
@@ -106,14 +103,17 @@ namespace PetGraph.Views
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 - inicioY), new Point(Ox1 + 13, Ay1 - inicioY));
                 g.DrawString(numeroYPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroYPositivos[lineas] > 9
-                    ? Ox1 - 35 : Ox1 - 30, Ay1 - inicioY - 10));
+                    numeroYPositivos[lineas] > 0.9 
+                    ? new Point(numeroYPositivos[lineas] > 9 ? Ox1 - 35 : Ox1 - 30, Ay1 - inicioY - 10)
+                    : new Point(Ox1 - 38, Ay1 - inicioY - 10));
 
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 + inicioY), new Point(Ox1 + 13, Ay1 + inicioY));
-                g.DrawString(numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString( numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroYNegativos[lineas] < -9 ? Ox1 - 43 : Ox1 - 37,
-                    Ay1 + (70 * (4 - lineas)) - 10));
+                    numeroYNegativos[lineas] < -0.9 ?
+                    new Point(numeroYNegativos[lineas] < -9
+                    ? Ox1 - 43 : Ox1 - 38, Ay1 + (70 * (4 - lineas)) - 10) :
+                    new Point(Ox1 - 46, Ay1 + (70 * (4 - lineas)) - 10));
                 inicioY += 70;
             }
 
@@ -197,19 +197,13 @@ namespace PetGraph.Views
             else if (zoomY == 3) return new double[] { -16, -15, -14, -13, 0, 13, 14, 15, 16 };
             else if (zoomY == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, 0, 0.6, 0.7, 0.8, 0.9 };
             else if (zoomY == -2) return new double[] { -0.5, -0.4, -0.3, -0.2, 0, 0.2, 0.3, 0.4, 0.5 };
-            else if (zoomY == -3) return new double[] { 0, 0, 0, -0.1, 0, 0.1, 0, 0, 0 };
+            else if (zoomY == -3) return new double[] { -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4 };
             else return new double[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             AlertaControles.Show();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            // RandomizarFuncion();
-            RandomizarPuntos();
         }
 
         private void GraphForm_KeyDown(object sender, KeyEventArgs e)
@@ -317,10 +311,22 @@ namespace PetGraph.Views
                 if (e.KeyCode == Keys.Z)
                 {
                     zoomX = zoomX == 3 ? 0 : zoomX + 1;
+                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
                     Invalidate();
                 } else if(e.KeyCode == Keys.C)
                 {
                     zoomY = zoomY == 3 ? 0 : zoomY + 1;
+                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                    Invalidate();
+                } else if(e.KeyCode == Keys.X)
+                {
+                    zoomX = zoomX == -2 ? 0 : zoomX - 1;
+                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                    Invalidate();
+                } else if(e.KeyCode == Keys.V)
+                {
+                    zoomY = zoomY == -3 ? 0 : zoomY - 1;
+                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
                     Invalidate();
                 }
             }
@@ -344,6 +350,12 @@ namespace PetGraph.Views
         {
             Cursor = Cursors.Hand;
             ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+        }
+
+        private void ClickObjetivo(object sender, EventArgs e)
+        {
+            // RandomizarFuncion();
+            if(formula == null) RandomizarPuntos();
         }
     }
 }

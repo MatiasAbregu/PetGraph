@@ -205,5 +205,8 @@
   <ItemGroup>
     <None Include="Resources\catlogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

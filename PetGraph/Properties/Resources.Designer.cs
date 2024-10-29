@@ -93,6 +93,16 @@ namespace PetGraph.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap controls_image {
+            get {
+                object obj = ResourceManager.GetObject("controls-image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dogMovement {
             get {
                 object obj = ResourceManager.GetObject("dogMovement", resourceCulture);
@@ -106,6 +116,26 @@ namespace PetGraph.Properties {
         internal static System.Drawing.Bitmap dogStart {
             get {
                 object obj = ResourceManager.GetObject("dogStart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enter_flecha {
+            get {
+                object obj = ResourceManager.GetObject("enter-flecha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flechas_juego {
+            get {
+                object obj = ResourceManager.GetObject("flechas-juego", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

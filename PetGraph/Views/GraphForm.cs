@@ -20,7 +20,7 @@ namespace PetGraph.Views
         private bool teclaPresionadaR = false, teclaPresionadaL = false,
             teclaPresionadaU = false, teclaPresionadaD = false, teclaPresionadaEnter = false;
         private int playerX = 5, playerY = 4; // hasta 9 que es longitud de vector
-        private int numeroLabel = 0;
+        private int numeroLabel = 0, zoomX = 0, zoomY = 0;
 
         public GraphForm(Player player)
         {
@@ -78,9 +78,12 @@ namespace PetGraph.Views
 
             // DIBUJAR LINEAS Y NÚMEROS EN LOS EJES DONDE SE COLOCARAN PUNTOS
             int inicioX = 70;
-            int[] numeroXPositivos = obtenerNumerosX().Where(n => n > 0).ToArray();
-            int[] numeroXNegativos = obtenerNumerosX().Where(n => n < 0).ToArray();
+            double[] numeroXPositivos = obtenerNumerosX().Where(n => n > 0).ToArray();
+            double[] numeroXNegativos = obtenerNumerosX().Where(n => n < 0).ToArray();
 
+            // FRAN HACE ESTO, NECESTIO QUE ACOMODES POR LONGITUD DE TEXTO O POR NUMEROS EL TEXTO, QUE
+            // QUEDE LO ´MÁS PAREJO POSIBLE
+            // La parte de   new Point(Ox1 - (70 * (5 - lineas)) - 14, 375)); es donde se modifica la long
             for (int lineas = 0; lineas < 5; lineas++)
             {
                 g.DrawLine(pen, new Point(Ox1 - inicioX, 345), new Point(Ox1 - inicioX, 365));
@@ -96,19 +99,20 @@ namespace PetGraph.Views
             }
 
             int inicioY = 70;
-            int[] numeroYPositivos = obtenerNumerosY().Where(n => n > 0).ToArray();
-            int[] numeroYNegativos = obtenerNumerosY().Where(n => n < 0).ToArray();
+            double[] numeroYPositivos = obtenerNumerosY().Where(n => n > 0).ToArray();
+            double[] numeroYNegativos = obtenerNumerosY().Where(n => n < 0).ToArray();
             for (int lineas = 0; lineas < 4; lineas++)
             {
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 - inicioY), new Point(Ox1 + 13, Ay1 - inicioY));
                 g.DrawString(numeroYPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroYPositivos[lineas] > 10 ? Ox1 - 40 : Ox1 - 30, Ay1 - inicioY - 10));
+                    new Point(numeroYPositivos[lineas] > 9
+                    ? Ox1 - 35 : Ox1 - 30, Ay1 - inicioY - 10));
 
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 + inicioY), new Point(Ox1 + 13, Ay1 + inicioY));
                 g.DrawString(numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroYNegativos[lineas] < -10 ? Ox1 - 50 : Ox1 - 40, 
+                    new Point(numeroYNegativos[lineas] < -9 ? Ox1 - 43 : Ox1 - 40,
                     Ay1 + (70 * (4 - lineas)) - 10));
                 inicioY += 70;
             }
@@ -176,14 +180,29 @@ namespace PetGraph.Views
             MessageBox.Show(formula);
         }
 
-        public int[] obtenerNumerosX()
+        public double[] obtenerNumerosX()
         {
-            return new int[] { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 50 };
+            if (zoomX == 1) return new double[] { -10, -9, -8, -7, -6, 0, 6, 7, 8, 9, 10 };
+            else if (zoomX == 2) return new double[] { -15, -14, -13, -12, -11, 0, 11, 12, 13, 14, 15 };
+            else if (zoomX == 3) return new double[] { -20, -19, -18, -17, -16, 0, 16, 17, 18, 19, 20 };
+            else if (zoomX == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, -0.5, 0, 0.5, 0.6, 0.7, 0.8, 0.9 };
+            else if (zoomX == -2) return new double[] { -0.5, -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5 };
+            else return new double[] { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };    
         }
 
-        public int[] obtenerNumerosY()
+        public double[] obtenerNumerosY()
         {
-            return new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 40 };
+            if (zoomY == 1) return new double[] { -8, -7, -6, -5, 0, 5, 6, 7, 8 };
+            else if(zoomY == 2) return new double[] { -12, -11, -10, -9, 0, 9, 10, 11, 12 };
+            else if(zoomY == 3) return new double[] { -16, -15, -14, -13, 0, 13, 14, 15, 16 };
+            else if(zoomY == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, 0, 0.6, 0.7, 0.8, 0.9 };
+            else if (zoomY == -2) return new double[] { -0.5, -0.4, -0.3, -0.2, 0, 0.2, 0.3, 0.4, 0.5 };
+            else return new double[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            AlertaControles.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -247,29 +266,61 @@ namespace PetGraph.Views
 
                 if (e.KeyCode == Keys.Enter)
                 {
-                    ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+                    ReproductorSonidos.ReproducirSonido("put-point.mp3");
+                    bool crearLabel = true;
 
-                    Label labelPunto = new Label
+                    foreach (Control control in Controls)
                     {
-                        Name = $"labelPunto{numeroLabel}",
-                        Text = "◉\n",
-                        Font = label2.Font,
-                        Location = new Point(panel1.Location.X, panel1.Location.Y + 23),
-                        BackColor = Color.Transparent,
-                        ForeColor = label2.ForeColor,
-                        TextAlign = ContentAlignment.MiddleCenter,
-                        AutoSize = false,
-                        Size = new Size(60, label2.Size.Height + 19)
-                    };
-
-                    if (Regex.Match(label2.Text, @"\((\d+),\s*(\d+)\)").Groups[1].Value.Trim() != "0" &&
-                        Regex.Match(label2.Text, @"\((\d+),\s*(\d+)\)").Groups[2].Value.Trim() != "0")
-                    {
-                        labelPunto.Text += label2.Text;
+                        if (control is Label)
+                        {
+                            if (control.Name.Contains("labelPunto")
+                                && panel1.Bounds.IntersectsWith(control.Bounds))
+                            {
+                                Controls.Remove(control);
+                                crearLabel = false;
+                                break;
+                            }
+                        }
                     }
 
-                    Controls.Add(labelPunto);
+                    if (crearLabel)
+                    {
+                        Label labelPunto = new Label
+                        {
+                            Name = $"labelPunto{numeroLabel}",
+                            Text = "◉\n",
+                            Font = label2.Font,
+                            Location = new Point(panel1.Location.X + 1, panel1.Location.Y + 22),
+                            BackColor = Color.Transparent,
+                            ForeColor = label2.ForeColor,
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            AutoSize = false,
+                            Size = new Size(60, label2.Size.Height + 17)
+                        };
+                        numeroLabel++;
+
+                        if (Regex.Match(label2.Text, @"\((-?\d+),\s*(-?\d+)\)").Groups[1].Value.Trim() != "0" &&
+                            Regex.Match(label2.Text, @"\((-?\d+),\s*(-?\d+)\)").Groups[2].Value.Trim() != "0")
+                        {
+                            labelPunto.Text += label2.Text;
+                        }
+                        Controls.Add(labelPunto);
+                    }
+
                     teclaPresionadaEnter = true;
+                }
+            }
+
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.Z)
+                {
+                    zoomX = zoomX == 3 ? 0 : zoomX + 1;
+                    Invalidate();
+                } else if(e.KeyCode == Keys.C)
+                {
+                    zoomY = zoomY == 3 ? 0 : zoomY + 1;
+                    Invalidate();
                 }
             }
         }
@@ -281,6 +332,17 @@ namespace PetGraph.Views
             else if (e.KeyCode == Keys.Up) teclaPresionadaD = false;
             else if (e.KeyCode == Keys.Down) teclaPresionadaU = false;
             else if (e.KeyCode == Keys.Enter) teclaPresionadaEnter = false;
+        }
+
+        private void MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+        private void MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
         }
     }
 }

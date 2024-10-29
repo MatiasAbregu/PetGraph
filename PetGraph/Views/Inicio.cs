@@ -83,6 +83,7 @@ namespace PetGraph
  
             GraphForm graphForm = new GraphForm(player);
             ConfiguracionTemas.EstablecerTema(graphForm);
+            this.Hide();
             graphForm.FormClosing += (s, ev) => 
             {
                 this.Show();

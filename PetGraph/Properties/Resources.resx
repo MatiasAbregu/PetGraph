@@ -127,6 +127,9 @@
   <data name="enter-flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enter-flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flechasBlancas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechasBlancas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="map-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,23 +142,32 @@
   <data name="dogStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dogStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ctrlC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ctrlC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="moongif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tumblr_odg08zhUOg1qjg55go1_500.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="controls-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\controls-image.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chuchiBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chuchiBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ctrlV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ctrlV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="helpLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\helpLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ctrlX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ctrlX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="piglogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piglogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dogMovement" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dogMovement.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chuchiBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chuchiBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flechas-juego" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flechas-juego.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,7 +175,16 @@
   <data name="picholinBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picholinBackground.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dogMovement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dogMovement.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ctrlZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ctrlZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

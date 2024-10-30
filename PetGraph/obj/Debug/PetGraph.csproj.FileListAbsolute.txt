@@ -49,3 +49,4 @@ C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\System.Security.A
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.Views.Alerta.resources
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.Views.AlertaControles.resources
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraph\obj\Debug\PetGraph.Views.AlertaVerificacion.resources

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -21,6 +22,7 @@ namespace PetGraph.Views
             teclaPresionadaU = false, teclaPresionadaD = false, teclaPresionadaEnter = false;
         private int playerX = 5, playerY = 4; // hasta 9 que es longitud de vector
         private int numeroLabel = 0, zoomX = 0, zoomY = 0, puntaje = 0;
+        List<PointGraph> listadoPuntos = new List<PointGraph>();
 
         public GraphForm(Player player)
         {
@@ -28,6 +30,7 @@ namespace PetGraph.Views
             ReproductorSonidos.ReproducirMusica("graph-theme.mp3");
             pictureBox1.Image = player.imgAnimal;
             Text = $"PetGraph - ¡Juega con {player.namePlayer}!";
+            label1.Text = $"Puntaje: {puntaje}";
             label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
         }
 
@@ -85,13 +88,17 @@ namespace PetGraph.Views
                 g.DrawLine(pen, new Point(Ox1 - inicioX, 345), new Point(Ox1 - inicioX, 365));
                 g.DrawString(numeroXNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroXNegativos[lineas] < -9 ? Ox1 - (70 * (5 - lineas)) - 16 :
-                    Ox1 - (70 * (5 - lineas)) - 14 , 375));
+                    numeroXNegativos[lineas] > -1 ?
+                    new Point(Ox1 - (70 * (5 - lineas)) - 18, 375)
+                    : new Point(numeroXNegativos[lineas] < -9 ? Ox1 - (70 * (5 - lineas)) - 16 :
+                    Ox1 - (70 * (5 - lineas)) - 14, 375));
 
                 g.DrawLine(pen, new Point(Ox1 + inicioX, 345), new Point(Ox1 + inicioX, 365));
                 g.DrawString(numeroXPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    new Point(numeroXPositivos[lineas] > 9 ? Ox1 + inicioX - 9 : Ox1 + inicioX - 6, 375));
+                    numeroXPositivos[lineas] < 1 ?
+                    new Point(Ox1 + inicioX - 12, 375)
+                    : new Point(numeroXPositivos[lineas] > 9 ? Ox1 + inicioX - 9 : Ox1 + inicioX - 6, 375));
                 inicioX += 70;
             }
 
@@ -103,12 +110,12 @@ namespace PetGraph.Views
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 - inicioY), new Point(Ox1 + 13, Ay1 - inicioY));
                 g.DrawString(numeroYPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
-                    numeroYPositivos[lineas] > 0.9 
+                    numeroYPositivos[lineas] > 0.9
                     ? new Point(numeroYPositivos[lineas] > 9 ? Ox1 - 35 : Ox1 - 30, Ay1 - inicioY - 10)
                     : new Point(Ox1 - 38, Ay1 - inicioY - 10));
 
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 + inicioY), new Point(Ox1 + 13, Ay1 + inicioY));
-                g.DrawString( numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString(numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
                     numeroYNegativos[lineas] < -0.9 ?
                     new Point(numeroYNegativos[lineas] < -9
@@ -133,9 +140,7 @@ namespace PetGraph.Views
                 puntos.Add($"({x}, {y})");
             }
 
-            formula = string.Join("; ", puntos);
-
-            MessageBox.Show(formula);
+            formula = string.Join(";  ", puntos);
         }
 
         private void RandomizarFuncion()
@@ -180,6 +185,12 @@ namespace PetGraph.Views
             MessageBox.Show(formula);
         }
 
+        private void labelCerrar_Click(object sender, EventArgs e)
+        {
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
+            panel2.Visible = false;
+        }
+
         public double[] obtenerNumerosX()
         {
             if (zoomX == 1) return new double[] { -10, -9, -8, -7, -6, 0, 6, 7, 8, 9, 10 };
@@ -187,7 +198,7 @@ namespace PetGraph.Views
             else if (zoomX == 3) return new double[] { -20, -19, -18, -17, -16, 0, 16, 17, 18, 19, 20 };
             else if (zoomX == -1) return new double[] { -0.9, -0.8, -0.7, -0.6, -0.5, 0, 0.5, 0.6, 0.7, 0.8, 0.9 };
             else if (zoomX == -2) return new double[] { -0.5, -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5 };
-            else return new double[] { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };    
+            else return new double[] { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
         }
 
         public double[] obtenerNumerosY()
@@ -203,6 +214,7 @@ namespace PetGraph.Views
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
             AlertaControles.Show();
         }
 
@@ -211,7 +223,7 @@ namespace PetGraph.Views
             if (!teclaPresionadaL && !teclaPresionadaR && !teclaPresionadaU
                 && !teclaPresionadaD && !teclaPresionadaEnter)
             {
-                if (panel1.Location.X != 765)
+                if (panel1.Location.X != 761)
                 {
                     if (e.KeyCode == Keys.Right)
                     {
@@ -219,11 +231,11 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X + 70, panel1.Location.Y);
                         teclaPresionadaR = true;
                         playerX++;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
                     }
                 }
 
-                if (panel1.Location.X != 65)
+                if (panel1.Location.X != 61)
                 {
                     if (e.KeyCode == Keys.Left)
                     {
@@ -231,11 +243,11 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X - 70, panel1.Location.Y);
                         teclaPresionadaL = true;
                         playerX--;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
                     }
                 }
 
-                if (panel1.Location.Y != 40)
+                if (panel1.Location.Y != 39)
                 {
                     if (e.KeyCode == Keys.Up)
                     {
@@ -243,11 +255,11 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X, panel1.Location.Y - 70);
                         teclaPresionadaD = true;
                         playerY++;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
                     }
                 }
 
-                if (panel1.Location.Y != 600)
+                if (panel1.Location.Y != 599)
                 {
                     if (e.KeyCode == Keys.Down)
                     {
@@ -255,7 +267,7 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + 70);
                         teclaPresionadaU = true;
                         playerY--;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
                     }
                 }
 
@@ -272,6 +284,7 @@ namespace PetGraph.Views
                                 && panel1.Bounds.IntersectsWith(control.Bounds))
                             {
                                 Controls.Remove(control);
+                                listadoPuntos.RemoveAll(point => point.contenido == control);
                                 crearLabel = false;
                                 break;
                             }
@@ -284,8 +297,10 @@ namespace PetGraph.Views
                         {
                             Name = $"labelPunto{numeroLabel}",
                             Text = "◉\n",
-                            Font = label2.Font,
-                            Location = new Point(panel1.Location.X + 1, panel1.Location.Y + 22),
+                            Font = obtenerNumerosX()[playerX].ToString().Contains(",")
+                            || obtenerNumerosY()[playerY].ToString().Contains(",") ?
+                            new Font("Bahnschrift Condensed", 11f) : new Font("Bahnschrift Condensed", 14f), //11 cuando , y 13 
+                            Location = new Point(panel1.Location.X + 6, panel1.Location.Y + 25),
                             BackColor = Color.Transparent,
                             ForeColor = label2.ForeColor,
                             TextAlign = ContentAlignment.MiddleCenter,
@@ -299,11 +314,14 @@ namespace PetGraph.Views
                         {
                             labelPunto.Text += label2.Text;
                         }
+
                         Controls.Add(labelPunto);
+                        listadoPuntos.Add(new
+                            PointGraph(obtenerNumerosX()[playerX], obtenerNumerosY()[playerY], labelPunto));
                     }
 
                     teclaPresionadaEnter = true;
-                }
+                }  
             }
 
             if (e.Control)
@@ -311,23 +329,22 @@ namespace PetGraph.Views
                 if (e.KeyCode == Keys.Z)
                 {
                     zoomX = zoomX == 3 ? 0 : zoomX + 1;
-                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
-                    Invalidate();
-                } else if(e.KeyCode == Keys.C)
+                    cargarPuntos();
+                }
+                else if (e.KeyCode == Keys.C)
                 {
                     zoomY = zoomY == 3 ? 0 : zoomY + 1;
-                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
-                    Invalidate();
-                } else if(e.KeyCode == Keys.X)
+                    cargarPuntos();
+                }
+                else if (e.KeyCode == Keys.X)
                 {
                     zoomX = zoomX == -2 ? 0 : zoomX - 1;
-                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
-                    Invalidate();
-                } else if(e.KeyCode == Keys.V)
+                    cargarPuntos();
+                }
+                else if (e.KeyCode == Keys.V)
                 {
                     zoomY = zoomY == -3 ? 0 : zoomY - 1;
-                    label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
-                    Invalidate();
+                    cargarPuntos();
                 }
             }
         }
@@ -341,6 +358,124 @@ namespace PetGraph.Views
             else if (e.KeyCode == Keys.Enter) teclaPresionadaEnter = false;
         }
 
+        private void cargarPuntos()
+        {
+            label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+
+            List<Label> labelsAEliminar = Controls.OfType<Label>()
+                .Where(label => label.Name.Contains("labelPunto")).ToList();
+
+            List<PointGraph> labelsAAnadir = listadoPuntos.OfType<PointGraph>()
+                .Where(punto => obtenerNumerosX().Contains(punto.valorX)
+                && obtenerNumerosY().Contains(punto.valorY)).ToList();
+
+            // Acomodar label para decimales estaticos
+            foreach (PointGraph labelEditar in labelsAAnadir)
+            {
+                if (zoomX == -1)
+                {
+                    if (labelEditar.valorX == -0.5)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(375 - 27, labelEditar.contenido.Location.Y);
+                    }
+                    else if (labelEditar.valorX == 0.5)
+                    {
+                        labelEditar.contenido.Location =
+                    new Point(445 + 70 - 27, labelEditar.contenido.Location.Y);
+                    }
+                }
+                else if (zoomX == -2)
+                {
+                    if (labelEditar.valorX == -0.5)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(95 - 27, labelEditar.contenido.Location.Y);
+                    }
+                    else if (labelEditar.valorX == 0.5)
+                    {
+                        labelEditar.contenido.Location =
+                    new Point(445 + (70 * 5) - 27, labelEditar.contenido.Location.Y);
+                    }
+                }
+
+                if (zoomY == -2)
+                {
+                    if (labelEditar.valorY == -0.4)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * (4 - 1)) - 14);
+                    }
+                    else if (labelEditar.valorY == -0.3)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * (4 - 2)) - 14);
+                    }
+                    else if (labelEditar.valorY == -0.2)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * (4 - 3)) - 14);
+                    }
+                    else if (labelEditar.valorY == 0.4)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 210 - 13);
+                    }
+                    else if (labelEditar.valorY == 0.3)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 140 - 13);
+                    }
+                    else if (labelEditar.valorY == 0.2)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 70 - 13);
+                    }
+                }
+                else if (zoomY == -3)
+                {
+                    if (labelEditar.valorY == -0.4)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * 4) - 14);
+                    }
+                    else if (labelEditar.valorY == -0.3)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * (4 - 1)) - 14);
+                    }
+                    else if (labelEditar.valorY == -0.2)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 + (70 * (4 - 2)) - 14);
+                    }
+                    else if (labelEditar.valorY == 0.4)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 280 - 13);
+                    }
+                    else if (labelEditar.valorY == 0.3)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 210 - 13);
+                    }
+                    else if (labelEditar.valorY == 0.2)
+                    {
+                        labelEditar.contenido.Location =
+                            new Point(labelEditar.contenido.Location.X, 355 - 140 - 13);
+                    }
+                }
+            }
+
+            foreach (Label labelEliminar in labelsAEliminar) Controls.Remove(labelEliminar);
+            foreach (PointGraph pointGraph in labelsAAnadir) Controls.Add(pointGraph.contenido);
+
+            label2.Font = obtenerNumerosX()[playerX].ToString().Contains(",") &&
+                              obtenerNumerosY()[playerY].ToString().Contains(",") ?
+                              new Font("Bahnschrift Condensed", 11f) : new Font("Bahnschrift Condensed", 14f);
+            Invalidate();
+        }
+
         private void MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
@@ -352,10 +487,24 @@ namespace PetGraph.Views
             ReproductorSonidos.ReproducirSonido("menu-move.mp3");
         }
 
+        private void buttonCompletado_Click(object sender, EventArgs e)
+        {
+            string puntos = string.Join("; ",
+                listadoPuntos.Select(punto => $"{punto.contenido.Text.Split('\n')[1]}"));
+            MessageBox.Show($"Puntos: {puntos}");
+            AlertaVerificacion.Show();
+
+            this.ActiveControl = null;
+        }
+
         private void ClickObjetivo(object sender, EventArgs e)
         {
             // RandomizarFuncion();
-            if(formula == null) RandomizarPuntos();
+            if (formula == null) RandomizarPuntos();
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
+            panel2.Visible = true;
+            label4.Text = $"Represente el siguiente conjunto o función en el eje de cordenadas cartesianas: " +
+                "\n\n{" + $"{formula}" + "}";
         }
     }
 }

@@ -11,36 +11,18 @@ using System.Windows.Forms;
 
 namespace PetGraph.Views
 {
-    public partial class Alerta : Form
+    public partial class AlertaVerificacion : Form
     {
-        public Alerta()
+        public AlertaVerificacion()
         {
             InitializeComponent();
             ConfiguracionTemas.EstablecerTema(this);
-        }
-
-        public Alerta(string msg, string msgButton)
-        {
-            InitializeComponent();
-            ConfiguracionTemas.EstablecerTema(this);
-            label3.Text = msg;
-            button2.Text = msgButton;
         }
 
         public static void Show()
         {
-            new Alerta().ShowDialog();
-        }
-
-        public static void Show(string msg, string msgButton)
-        {
-            new Alerta(msg, msgButton).ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
-            Close();
+            AlertaVerificacion alerta = new AlertaVerificacion();
+            alerta.ShowDialog();
         }
 
         private void MouseLeave(object sender, EventArgs e)

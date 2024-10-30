@@ -15,6 +15,8 @@ namespace PetGraph
     public partial class MascotasForm : Form
     {
         private Player player;
+        private int personajesSlider = 0;
+
         public MascotasForm(Player player)
         {
             InitializeComponent();
@@ -64,26 +66,36 @@ namespace PetGraph
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             ReproductorSonidos.ReproducirSonido("menu-select.mp3");
-            player.namePlayer = "Melba";
-            player.imgAnimal = Properties.Resources.dogStart;
+            if(label1.Text != "???")
+            {
+                player.namePlayer = label1.Text;
+                player.imgAnimal = pictureBox1.Image;
+            }
             SetLabelAndImage();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ReproductorSonidos.ReproducirSonido("menu-select.mp3");
-            player.namePlayer = "Chuchi";
-            player.imgAnimal = Properties.Resources.catlogo;
+            if(label2.Text != "???")
+            {
+                player.namePlayer = label2.Text;
+                player.imgAnimal = pictureBox2.Image;
+            }
             SetLabelAndImage();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             ReproductorSonidos.ReproducirSonido("menu-select.mp3");
-            player.namePlayer = "Pilochín";
-            player.imgAnimal = Properties.Resources.piglogo;
+            if(label3.Text != "???")
+            {
+                player.namePlayer = label3.Text;
+                player.imgAnimal = pictureBox3.Image;
+            }
             SetLabelAndImage();
         }
+
 
         private void SetLabelAndImage()
         {
@@ -91,5 +103,42 @@ namespace PetGraph
             pictureBox4.Image = player.imgAnimal;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            personajesSlider = personajesSlider == 1 ? 0 : personajesSlider + 1;
+            ActualizarMascotas();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            personajesSlider = personajesSlider == 0 ? 1 : personajesSlider - 1;
+            ActualizarMascotas();
+        }
+
+        private void ActualizarMascotas()
+        {
+            if (personajesSlider == 0)
+            {
+                label1.Text = "Melba";
+                pictureBox1.Image = Properties.Resources.dogStart;
+
+                label2.Text = "Chuchi";
+                pictureBox2.Image = Properties.Resources.catlogo;
+
+                label3.Text = "Pilochín";
+                pictureBox3.Image = Properties.Resources.piglogo;
+            }
+            else if (personajesSlider == 1)
+            {
+                label1.Text = "Dana";
+                pictureBox1.Image = Properties.Resources.dana;
+
+                label2.Text = "???";
+                pictureBox2.Image = null;
+
+                label3.Text = "???";
+                pictureBox3.Image = null;
+            }
+        }
     }
 }

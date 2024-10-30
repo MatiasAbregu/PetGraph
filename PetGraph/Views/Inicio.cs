@@ -108,5 +108,13 @@ namespace PetGraph
         {
             ReproductorSonidos.EstablecerVolumen((float)trackBar1.Value / 10f);
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            ReproductorSonidos.ReproducirSonido("menu-select.mp3");
+            Alerta.Show("Este juego fue desarrollado por Matías Abregú y Francisco Barrionuevo" +
+                "\nen honor al profesor Luis Pestoni, docente de matématicas... " +
+                "\n¡Gracias por todas las enseñanzas de este año Luis!", "Cerrar");
+        }
     }
 }

@@ -86,7 +86,7 @@ namespace PetGraph.Views
             for (int lineas = 0; lineas < 5; lineas++)
             {
                 g.DrawLine(pen, new Point(Ox1 - inicioX, 345), new Point(Ox1 - inicioX, 365));
-                g.DrawString(numeroXNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString(numeroXNegativos[lineas].ToString().Replace(",", "."), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
                     numeroXNegativos[lineas] > -1 ?
                     new Point(Ox1 - (70 * (5 - lineas)) - 18, 375)
@@ -94,7 +94,7 @@ namespace PetGraph.Views
                     Ox1 - (70 * (5 - lineas)) - 14, 375));
 
                 g.DrawLine(pen, new Point(Ox1 + inicioX, 345), new Point(Ox1 + inicioX, 365));
-                g.DrawString(numeroXPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString(numeroXPositivos[lineas].ToString().Replace(",", "."), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
                     numeroXPositivos[lineas] < 1 ?
                     new Point(Ox1 + inicioX - 12, 375)
@@ -108,14 +108,14 @@ namespace PetGraph.Views
             for (int lineas = 0; lineas < 4; lineas++)
             {
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 - inicioY), new Point(Ox1 + 13, Ay1 - inicioY));
-                g.DrawString(numeroYPositivos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString(numeroYPositivos[lineas].ToString().Replace(",", "."), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
                     numeroYPositivos[lineas] > 0.9
                     ? new Point(numeroYPositivos[lineas] > 9 ? Ox1 - 35 : Ox1 - 30, Ay1 - inicioY - 10)
                     : new Point(Ox1 - 38, Ay1 - inicioY - 10));
 
                 g.DrawLine(pen, new Point(Ox1 - 13, Ay1 + inicioY), new Point(Ox1 + 13, Ay1 + inicioY));
-                g.DrawString(numeroYNegativos[lineas].ToString(), new Font("Bahnschrift Condensed", 15),
+                g.DrawString(numeroYNegativos[lineas].ToString().Replace(",", "."), new Font("Bahnschrift Condensed", 15),
                     new SolidBrush(ConfiguracionTemas.ObtenerColorParaGrafica()),
                     numeroYNegativos[lineas] < -0.9 ?
                     new Point(numeroYNegativos[lineas] < -9
@@ -137,10 +137,10 @@ namespace PetGraph.Views
             {
                 int x = randomizador.Next(-10, 10);
                 int y = randomizador.Next(-10, 10);
-                puntos.Add($"({x}, {y})");
+                puntos.Add($"({x}; {y})");
             }
 
-            formula = string.Join(";  ", puntos);
+            formula = string.Join(",  ", puntos);
         }
 
         private void RandomizarFuncion()
@@ -231,7 +231,8 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X + 70, panel1.Location.Y);
                         teclaPresionadaR = true;
                         playerX++;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
                     }
                 }
 
@@ -243,7 +244,8 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X - 70, panel1.Location.Y);
                         teclaPresionadaL = true;
                         playerX--;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
                     }
                 }
 
@@ -255,7 +257,8 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X, panel1.Location.Y - 70);
                         teclaPresionadaD = true;
                         playerY++;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
                     }
                 }
 
@@ -267,7 +270,8 @@ namespace PetGraph.Views
                         panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + 70);
                         teclaPresionadaU = true;
                         playerY--;
-                        label2.Text = $"({obtenerNumerosX()[playerX]}; {obtenerNumerosY()[playerY]})";
+                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
                     }
                 }
 
@@ -300,7 +304,10 @@ namespace PetGraph.Views
                             Font = obtenerNumerosX()[playerX].ToString().Contains(",")
                             || obtenerNumerosY()[playerY].ToString().Contains(",") ?
                             new Font("Bahnschrift Condensed", 11f) : new Font("Bahnschrift Condensed", 14f), //11 cuando , y 13 
-                            Location = new Point(panel1.Location.X + 6, panel1.Location.Y + 25),
+                            Location = obtenerNumerosX()[playerX].ToString().Contains(",")
+                            || obtenerNumerosY()[playerY].ToString().Contains(",") ?
+                            new Point(panel1.Location.X + 6, panel1.Location.Y + 21) :
+                            new Point(panel1.Location.X + 6, panel1.Location.Y + 25),
                             BackColor = Color.Transparent,
                             ForeColor = label2.ForeColor,
                             TextAlign = ContentAlignment.MiddleCenter,
@@ -309,11 +316,7 @@ namespace PetGraph.Views
                         };
                         numeroLabel++;
 
-                        if (Regex.Match(label2.Text, @"\((-?\d+),\s*(-?\d+)\)").Groups[1].Value.Trim() != "0" &&
-                            Regex.Match(label2.Text, @"\((-?\d+),\s*(-?\d+)\)").Groups[2].Value.Trim() != "0")
-                        {
-                            labelPunto.Text += label2.Text;
-                        }
+                        labelPunto.Text += label2.Text;
 
                         Controls.Add(labelPunto);
                         listadoPuntos.Add(new
@@ -321,7 +324,7 @@ namespace PetGraph.Views
                     }
 
                     teclaPresionadaEnter = true;
-                }  
+                }
             }
 
             if (e.Control)
@@ -360,7 +363,8 @@ namespace PetGraph.Views
 
         private void cargarPuntos()
         {
-            label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+            label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
 
             List<Label> labelsAEliminar = Controls.OfType<Label>()
                 .Where(label => label.Name.Contains("labelPunto")).ToList();
@@ -489,10 +493,102 @@ namespace PetGraph.Views
 
         private void buttonCompletado_Click(object sender, EventArgs e)
         {
-            string puntos = string.Join("; ",
+            string puntos = string.Join(", ",
                 listadoPuntos.Select(punto => $"{punto.contenido.Text.Split('\n')[1]}"));
-            MessageBox.Show($"Puntos: {puntos}");
-            AlertaVerificacion.Show();
+            int eleccion = AlertaVerificacion.Show(puntos);
+
+            if (eleccion == 1)
+            {
+                if (formula.Contains(";"))
+                {
+                    string[] puntosFormula = formula.Replace("{", "").Replace("}", "").Split(',');
+                    string[] puntosSeleccionados = puntos.Split(',');
+
+                    if (puntosFormula.Length == puntosSeleccionados.Length)
+                    {
+                        bool correcto = true;
+
+                        foreach (string puntoF in puntosFormula)
+                        {
+                            bool encontrado = false;
+
+                            foreach (string puntoS in puntosSeleccionados)
+                            {
+
+                                string puntoFComparar = puntoF.Replace("(", "").Replace(")", "").Trim();
+                                string puntoSComparar = puntoS.Replace("(", "").Replace(")", "").Trim();
+
+                                if (puntoFComparar == puntoSComparar)
+                                {
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+
+                            if (!encontrado)
+                            {
+                                correcto = false;
+                                break;
+                            }
+                        }
+
+                        if (correcto)
+                        {
+                            Alerta.Show("¡Muy bien! Has puesto todos los puntos correctamente, felicidades." +
+                                "\n¡Sigue asi y ve a por más todavía!",
+                                "¡Gracias!", "correcto");
+                            puntaje++;
+                            ComenzarDeNuevo();
+                        }
+                        else
+                        {
+                            Alerta.Show("Oh, lastima... Has puesto uno/varios puntos incorrectos." +
+                                "\n¡Presta más atención la próxima, ánimo no te desanimes que sé " +
+                                "\nque puedes hacerlo mejor!",
+                                "¡Me esforzaré!", "erroneo");
+
+                            if (puntaje == 0)
+                            {
+                                Alerta.Show("Oh, lastima... Tus puntaje ha decendido a menos que 0." +
+                                "\n¡Esfuerzate más la próxima, recuerda, tus límites los estableces " +
+                                "\ntú y nadie más, ÁNIMO!",
+                                "Salir", "derrota");
+                                Close();
+                            }
+                            else
+                            {
+                                puntaje--;
+                                label1.Text = $"Puntaje: {puntaje}";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Alerta.Show("¡Hey velocista, espera! Te han faltado o te has pasado de puntos." +
+                                "\n¡Presta más atención la próxima, ánimo no te desanimes que sé " +
+                                "\nque puedes hacerlo mejor!",
+                                "¡Me esforzaré!", "erroneo");
+
+                        if (puntaje == 0)
+                        {
+                            Alerta.Show("Oh, lastima... Tus puntaje ha decendido a menos que 0." +
+                                "\n¡Esfuerzate más la próxima, recuerda, tus límites los estableces " +
+                                "\ntú y nadie más, ÁNIMO!",
+                                "Salir", "derrota");
+                            Close();
+                        }
+                        else
+                        {
+                            puntaje--;
+                            label1.Text = $"Puntaje: {puntaje}";
+                        }
+                    }
+                }
+                else if (formula.Contains("x") || formula.Contains("y"))
+                {
+
+                }
+            }
 
             this.ActiveControl = null;
         }
@@ -505,6 +601,28 @@ namespace PetGraph.Views
             panel2.Visible = true;
             label4.Text = $"Represente el siguiente conjunto o función en el eje de cordenadas cartesianas: " +
                 "\n\n{" + $"{formula}" + "}";
+        }
+
+        private void ComenzarDeNuevo()
+        {
+            label1.Text = $"Puntaje: {puntaje}";
+            listadoPuntos.Clear();
+            zoomX = 0;
+            zoomY = 0;
+            cargarPuntos();
+
+            RandomizarPuntos();
+            label4.Text = $"Represente el siguiente conjunto o función en el eje de cordenadas cartesianas: " +
+            "\n\n{" + $"{formula}" + "}";
+            //if (puntaje < 6)
+            //{
+                   
+            //}
+            //else
+            //{
+            //    if (new Random().Next(1, 3) == 1) RandomizarPuntos();
+            //    else RandomizarFuncion();
+            //}
         }
     }
 }

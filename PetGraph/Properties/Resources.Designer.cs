@@ -73,6 +73,16 @@ namespace PetGraph.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkIcon {
+            get {
+                object obj = ResourceManager.GetObject("checkIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chuchiBackground {
             get {
                 object obj = ResourceManager.GetObject("chuchiBackground", resourceCulture);
@@ -96,6 +106,16 @@ namespace PetGraph.Properties {
         internal static System.Drawing.Bitmap controls_image {
             get {
                 object obj = ResourceManager.GetObject("controls-image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap crossIcon {
+            get {
+                object obj = ResourceManager.GetObject("crossIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

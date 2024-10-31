@@ -40,12 +40,12 @@
             // 
             this.label3.Font = new System.Drawing.Font("Press Start 2P", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(156, 47);
+            this.label3.Location = new System.Drawing.Point(156, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(365, 78);
+            this.label3.Size = new System.Drawing.Size(365, 124);
             this.label3.TabIndex = 10;
             this.label3.Text = "¿Estás seguro que quieres verificar tu gráfico?";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -75,6 +75,7 @@
             this.buttonCompletado.TabStop = false;
             this.buttonCompletado.Text = "Si";
             this.buttonCompletado.UseVisualStyleBackColor = false;
+            this.buttonCompletado.Click += new System.EventHandler(this.buttonCompletado_Click);
             this.buttonCompletado.MouseEnter += new System.EventHandler(this.MouseEnter);
             this.buttonCompletado.MouseLeave += new System.EventHandler(this.MouseLeave);
             // 
@@ -95,6 +96,7 @@
             this.buttonCerrar.TabStop = false;
             this.buttonCerrar.Text = "No";
             this.buttonCerrar.UseVisualStyleBackColor = false;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             this.buttonCerrar.MouseEnter += new System.EventHandler(this.MouseEnter);
             this.buttonCerrar.MouseLeave += new System.EventHandler(this.MouseLeave);
             // 

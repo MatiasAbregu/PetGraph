@@ -32,9 +32,29 @@ namespace PetGraph.Views
             new Alerta().ShowDialog();
         }
 
-        public static void Show(string msg, string msgButton)
+        public static void Show(string msg, string msgButton, string title = "¡Hey, espera un segundo!")
         {
-            new Alerta(msg, msgButton).ShowDialog();
+            Alerta alerta = new Alerta(msg, msgButton);
+
+            if (title == "correcto")
+            {
+                title = "¡Felicidades!";
+                alerta.pictureBox1.Image = Properties.Resources.checkIcon;
+            }
+            else if (title == "erroneo")
+            {
+                title = "¡Uy! Parece que te has equivocado...";
+                alerta.pictureBox1.Image = Properties.Resources.crossIcon;
+            }
+            else if (title == "derrota")
+            {
+                title = "¡Que mal! Has perdido";
+                alerta.pictureBox1.Image = Properties.Resources.piglogo;
+            }
+
+            alerta.Text = title;
+            alerta.ShowDialog();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

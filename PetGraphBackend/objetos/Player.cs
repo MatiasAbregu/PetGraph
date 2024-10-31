@@ -9,7 +9,7 @@ namespace PetGraphBackend.Objetos
 {
     public class Player
     {
-        public Bitmap imgAnimal { get; set; }
+        public Image imgAnimal { get; set; }
         public string namePlayer { get; set; }
 
     }

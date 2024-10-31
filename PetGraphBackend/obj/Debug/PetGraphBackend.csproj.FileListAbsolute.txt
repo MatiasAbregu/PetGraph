@@ -8,12 +8,6 @@ D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.dll
 D:\Proyectos\PethGraph\PetGraphBackend\obj\Debug\PetGraphBackend.pdb
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\PetGraphBackend.dll
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\PetGraphBackend.pdb
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.AssemblyReference.cache
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.Properties.Resources.resources
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.GenerateResource.cache
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.CoreCompileInputs.cache
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.dll
-C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.pdb
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\Microsoft.Win32.Registry.dll
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\NAudio.Asio.dll
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\NAudio.Core.dll
@@ -34,4 +28,10 @@ C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\NAudio.Win
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\NAudio.WinMM.xml
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\System.Security.AccessControl.xml
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.AssemblyReference.cache
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.Properties.Resources.resources
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.GenerateResource.cache
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.csproj.CoreCompileInputs.cache
 C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraph.7EEC65F1.Up2Date
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.dll
+C:\Users\matia\Documents\CodigosC#\PetGraph\PetGraphBackend\obj\Debug\PetGraphBackend.pdb

@@ -29,15 +29,20 @@ namespace PetGraph
 
                 if (controlTemp is Button)
                 {
-                    controlTemp.BackColor = tema ? Color.FromArgb(30, 30, 30) : Color.White;
-                    controlTemp.ForeColor = tema ? Color.White : Color.FromArgb(30, 30, 30);
+                    if (!controlTemp.Name.Equals("buttonCerrar") &&
+                            !controlTemp.Name.Equals("buttonCompletado"))
+                    {
+                        controlTemp.BackColor = tema ? Color.FromArgb(30, 30, 30) : Color.White;
+                        controlTemp.ForeColor = tema ? Color.White : Color.FromArgb(30, 30, 30);
+                    } 
                 }
 
                 if (controlTemp is Panel)
                 {
                     foreach (Control controlTemp2 in controlTemp.Controls)
                     {
-                        if (!controlTemp2.Name.Equals("labelCerrar"))
+                        if (!controlTemp2.Name.Equals("labelCerrar") && 
+                            !controlTemp2.Name.Equals("buttonCompletado"))
                         {
                             controlTemp2.ForeColor = tema ? Color.FromArgb(30, 30, 30) : Color.White;
                         }

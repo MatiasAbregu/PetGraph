@@ -32,6 +32,11 @@ namespace PetGraph.Views
             Text = $"PetGraph - ¡Juega con {player.namePlayer}!";
             label1.Text = $"Puntaje: {puntaje}";
             label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+
+            if (Screen.PrimaryScreen.WorkingArea.Width >= 1900
+                && Screen.PrimaryScreen.WorkingArea.Height >= 1040) Size = new Size(917, 755);
+            else if (Screen.PrimaryScreen.WorkingArea.Width >= 1360
+                && Screen.PrimaryScreen.WorkingArea.Height >= 700) Size = new Size(917, 730);
         }
 
         private void GraphForm_Paint(object sender, PaintEventArgs e)
@@ -39,6 +44,7 @@ namespace PetGraph.Views
             Graphics g = e.Graphics;
 
             // Width: 900; Height: 750 (FORMULARIO)
+            g.TranslateTransform(0, -VerticalScroll.Value);
 
             // Lapiz color y trazo
             Pen pen = new Pen(ConfiguracionTemas.ObtenerColorParaGrafica(), 3);
@@ -218,12 +224,23 @@ namespace PetGraph.Views
             AlertaControles.Show();
         }
 
+        private void GraphForm_Scroll(object sender, ScrollEventArgs e)
+        {
+            foreach(Control control in Controls)
+            {
+                if(control is Label && control.Name.Contains("labelPunto")){
+                    control.Location = new Point(control.Location.X - AutoScrollPosition.X,
+                        control.Location.Y - AutoScrollPosition.Y);
+                }
+            }
+        }
+
         private void GraphForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (!teclaPresionadaL && !teclaPresionadaR && !teclaPresionadaU
                 && !teclaPresionadaD && !teclaPresionadaEnter)
             {
-                if (panel1.Location.X != 761)
+                if (panel1.Location.X - AutoScrollPosition.X < 761)
                 {
                     if (e.KeyCode == Keys.Right)
                     {
@@ -236,7 +253,7 @@ namespace PetGraph.Views
                     }
                 }
 
-                if (panel1.Location.X != 61)
+                if (panel1.Location.X - AutoScrollPosition.X > 61)
                 {
                     if (e.KeyCode == Keys.Left)
                     {
@@ -249,7 +266,7 @@ namespace PetGraph.Views
                     }
                 }
 
-                if (panel1.Location.Y != 39)
+                if (panel1.Location.Y - AutoScrollPosition.Y > 39)
                 {
                     if (e.KeyCode == Keys.Up)
                     {
@@ -262,7 +279,7 @@ namespace PetGraph.Views
                     }
                 }
 
-                if (panel1.Location.Y != 599)
+                if (panel1.Location.Y - AutoScrollPosition.Y < 599)
                 {
                     if (e.KeyCode == Keys.Down)
                     {

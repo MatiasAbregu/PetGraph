@@ -115,7 +115,7 @@
             this.MinimizeBox = false;
             this.Name = "AlertaVerificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AlertaVerificacion";
+            this.Text = "Espera... ¿Estás seguro?";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\alertaverificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\petgraph\\views\\alertaverificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\alertaverificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|c:\\users\\matia\\documents\\codigosc#\\petgraph\\petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F57F657F-9E1C-41D9-AA85-8FD3DFC25153}|PetGraph\\PetGraph.csproj|solutionrelative:petgraph\\views\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AlertaVerificacion.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\AlertaVerificacion.cs",
               "RelativeDocumentMoniker": "PetGraph\\Views\\AlertaVerificacion.cs",
@@ -59,30 +51,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Inicio.cs",
-              "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\Inicio.cs",
-              "RelativeDocumentMoniker": "PetGraph\\Views\\Inicio.cs",
-              "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\Inicio.cs",
-              "RelativeToolTip": "PetGraph\\Views\\Inicio.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAAwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T06:23:22.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Inicio.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\Inicio.cs",
-              "RelativeDocumentMoniker": "PetGraph\\Views\\Inicio.cs",
-              "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\Inicio.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PetGraph\\Views\\Inicio.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T06:23:19.136Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "GraphForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
               "RelativeDocumentMoniker": "PetGraph\\Views\\GraphForm.cs",
@@ -94,13 +62,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GraphForm.cs",
               "DocumentMoniker": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
               "RelativeDocumentMoniker": "PetGraph\\Views\\GraphForm.cs",
               "ToolTip": "C:\\Users\\matia\\Documents\\CodigosC#\\PetGraph\\PetGraph\\Views\\GraphForm.cs",
               "RelativeToolTip": "PetGraph\\Views\\GraphForm.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAkwCQAAABeAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAqwDgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T20:08:29.525Z",
               "EditorCaption": ""

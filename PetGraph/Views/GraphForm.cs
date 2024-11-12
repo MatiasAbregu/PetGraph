@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -19,10 +20,13 @@ namespace PetGraph.Views
     {
         private string formula;
         private bool teclaPresionadaR = false, teclaPresionadaL = false,
-            teclaPresionadaU = false, teclaPresionadaD = false, teclaPresionadaEnter = false;
+            teclaPresionadaU = false, teclaPresionadaD = false, 
+            teclaPresionadaEnter = false, scrollAndando = false;
         private int playerX = 5, playerY = 4; // hasta 9 que es longitud de vector
         private int numeroLabel = 0, zoomX = 0, zoomY = 0, puntaje = 0;
         List<PointGraph> listadoPuntos = new List<PointGraph>();
+        private Stopwatch temporizador = new Stopwatch();
+        private Timer controladorTemp = new Timer();
 
         public GraphForm(Player player)
         {
@@ -31,12 +35,24 @@ namespace PetGraph.Views
             pictureBox1.Image = player.imgAnimal;
             Text = $"PetGraph - ¡Juega con {player.namePlayer}!";
             label1.Text = $"Puntaje: {puntaje}";
-            label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";
+            label2.Text = $"({obtenerNumerosX()[playerX]}, {obtenerNumerosY()[playerY]})";  
 
             if (Screen.PrimaryScreen.WorkingArea.Width >= 1900
                 && Screen.PrimaryScreen.WorkingArea.Height >= 1040) Size = new Size(917, 755);
             else if (Screen.PrimaryScreen.WorkingArea.Width >= 1360
                 && Screen.PrimaryScreen.WorkingArea.Height >= 700) Size = new Size(917, 730);
+
+            if (Screen.PrimaryScreen.WorkingArea.Width <= 1900
+                && Screen.PrimaryScreen.WorkingArea.Height <= 1040)
+            {
+                MouseWheel += GraphForm_Wheel;
+                controladorTemp.Interval = 250;
+                controladorTemp.Tick += (s, e) =>
+                {
+                    if (temporizador.ElapsedMilliseconds > 500) scrollAndando = false;
+                };
+                controladorTemp.Start();
+            }
         }
 
         private void GraphForm_Paint(object sender, PaintEventArgs e)
@@ -152,7 +168,7 @@ namespace PetGraph.Views
         private void RandomizarFuncion()
         {
             Random randomizador = new Random();
-            int cantTerminos = randomizador.Next(1, 4);
+            int cantTerminos = randomizador.Next(1, 3);
             formula = "";
 
             if (cantTerminos == 1) // X o Y
@@ -168,6 +184,7 @@ namespace PetGraph.Views
                     formula += randomizador.Next(1, 3) == 1 ? " + " : " - ";
                     formula += randomizador.Next(1, 3) == 1 ? $"{randomizador.Next(-10, 10)}y" : "y";
                 } while (formula == "x - y" || formula == "x + y");
+                formula += $" = {randomizador.Next(-10, 10)}";
             }
             else if (cantTerminos == 3) // X +- N = Y || Y +- N = X
             {
@@ -226,148 +243,152 @@ namespace PetGraph.Views
 
         private void GraphForm_Scroll(object sender, ScrollEventArgs e)
         {
-            foreach(Control control in Controls)
-            {
-                if(control is Label && control.Name.Contains("labelPunto")){
-                    control.Location = new Point(control.Location.X - AutoScrollPosition.X,
-                        control.Location.Y - AutoScrollPosition.Y);
-                }
-            }
+            scrollAndando = true;
+            temporizador.Restart();
+        }
+
+        private void GraphForm_Wheel(object sender, MouseEventArgs e)
+        {
+            scrollAndando = true;
+            temporizador.Restart();
         }
 
         private void GraphForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!teclaPresionadaL && !teclaPresionadaR && !teclaPresionadaU
-                && !teclaPresionadaD && !teclaPresionadaEnter)
+            if (!scrollAndando)
             {
-                if (panel1.Location.X - AutoScrollPosition.X < 761)
+                if (!teclaPresionadaL && !teclaPresionadaR && !teclaPresionadaU
+                && !teclaPresionadaD && !teclaPresionadaEnter)
                 {
-                    if (e.KeyCode == Keys.Right)
+                    if (panel1.Location.X - AutoScrollPosition.X < 761)
                     {
-                        ReproductorSonidos.ReproducirSonido("menu-move.mp3");
-                        panel1.Location = new Point(panel1.Location.X + 70, panel1.Location.Y);
-                        teclaPresionadaR = true;
-                        playerX++;
-                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
-                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
-                    }
-                }
-
-                if (panel1.Location.X - AutoScrollPosition.X > 61)
-                {
-                    if (e.KeyCode == Keys.Left)
-                    {
-                        ReproductorSonidos.ReproducirSonido("menu-move.mp3");
-                        panel1.Location = new Point(panel1.Location.X - 70, panel1.Location.Y);
-                        teclaPresionadaL = true;
-                        playerX--;
-                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
-                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
-                    }
-                }
-
-                if (panel1.Location.Y - AutoScrollPosition.Y > 39)
-                {
-                    if (e.KeyCode == Keys.Up)
-                    {
-                        ReproductorSonidos.ReproducirSonido("menu-move.mp3");
-                        panel1.Location = new Point(panel1.Location.X, panel1.Location.Y - 70);
-                        teclaPresionadaD = true;
-                        playerY++;
-                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
-                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
-                    }
-                }
-
-                if (panel1.Location.Y - AutoScrollPosition.Y < 599)
-                {
-                    if (e.KeyCode == Keys.Down)
-                    {
-                        ReproductorSonidos.ReproducirSonido("menu-move.mp3");
-                        panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + 70);
-                        teclaPresionadaU = true;
-                        playerY--;
-                        label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
-                            $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
-                    }
-                }
-
-                if (e.KeyCode == Keys.Enter)
-                {
-                    ReproductorSonidos.ReproducirSonido("put-point.mp3");
-                    bool crearLabel = true;
-
-                    foreach (Control control in Controls)
-                    {
-                        if (control is Label)
+                        if (e.KeyCode == Keys.Right)
                         {
-                            if (control.Name.Contains("labelPunto")
-                                && panel1.Bounds.IntersectsWith(control.Bounds))
-                            {
-                                Controls.Remove(control);
-                                listadoPuntos.RemoveAll(point => point.contenido == control);
-                                crearLabel = false;
-                                break;
-                            }
+                            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+                            panel1.Location = new Point(panel1.Location.X + 70, panel1.Location.Y);
+                            teclaPresionadaR = true;
+                            playerX++;
+                            label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                                $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
                         }
                     }
 
-                    if (crearLabel)
+                    if (panel1.Location.X - AutoScrollPosition.X > 61)
                     {
-                        Label labelPunto = new Label
+                        if (e.KeyCode == Keys.Left)
                         {
-                            Name = $"labelPunto{numeroLabel}",
-                            Text = "◉\n",
-                            Font = obtenerNumerosX()[playerX].ToString().Contains(",")
-                            || obtenerNumerosY()[playerY].ToString().Contains(",") ?
-                            new Font("Bahnschrift Condensed", 11f) : new Font("Bahnschrift Condensed", 14f), //11 cuando , y 13 
-                            Location = obtenerNumerosX()[playerX].ToString().Contains(",")
-                            || obtenerNumerosY()[playerY].ToString().Contains(",") ?
-                            new Point(panel1.Location.X + 6, panel1.Location.Y + 21) :
-                            new Point(panel1.Location.X + 6, panel1.Location.Y + 25),
-                            BackColor = Color.Transparent,
-                            ForeColor = label2.ForeColor,
-                            TextAlign = ContentAlignment.MiddleCenter,
-                            AutoSize = false,
-                            Size = new Size(60, label2.Size.Height + 17)
-                        };
-                        numeroLabel++;
-
-                        labelPunto.Text += label2.Text;
-
-                        Controls.Add(labelPunto);
-                        listadoPuntos.Add(new
-                            PointGraph(obtenerNumerosX()[playerX], obtenerNumerosY()[playerY], labelPunto));
+                            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+                            panel1.Location = new Point(panel1.Location.X - 70, panel1.Location.Y);
+                            teclaPresionadaL = true;
+                            playerX--;
+                            label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                                $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
+                        }
                     }
 
-                    teclaPresionadaEnter = true;
-                }
-            }
+                    if (panel1.Location.Y - AutoScrollPosition.Y > 39)
+                    {
+                        if (e.KeyCode == Keys.Up)
+                        {
+                            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+                            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y - 70);
+                            teclaPresionadaD = true;
+                            playerY++;
+                            label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                                $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
+                        }
+                    }
 
-            if (e.Control)
-            {
-                if (e.KeyCode == Keys.Z)
-                {
-                    zoomX = zoomX == 3 ? 0 : zoomX + 1;
-                    cargarPuntos();
+                    if (panel1.Location.Y - AutoScrollPosition.Y < 599)
+                    {
+                        if (e.KeyCode == Keys.Down)
+                        {
+                            ReproductorSonidos.ReproducirSonido("menu-move.mp3");
+                            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + 70);
+                            teclaPresionadaU = true;
+                            playerY--;
+                            label2.Text = $"({obtenerNumerosX()[playerX].ToString().Replace(",", ".")}; " +
+                                $"{obtenerNumerosY()[playerY].ToString().Replace(",", ".")})";
+                        }
+                    }
+
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        ReproductorSonidos.ReproducirSonido("put-point.mp3");
+                        bool crearLabel = true;
+
+                        foreach (Control control in Controls)
+                        {
+                            if (control is Label)
+                            {
+                                if (control.Name.Contains("labelPunto")
+                                    && panel1.Bounds.IntersectsWith(control.Bounds))
+                                {
+                                    Controls.Remove(control);
+                                    listadoPuntos.RemoveAll(point => point.contenido == control);
+                                    crearLabel = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (crearLabel)
+                        {
+                            Label labelPunto = new Label
+                            {
+                                Name = $"labelPunto{numeroLabel}",
+                                Text = "◉\n",
+                                Font = obtenerNumerosX()[playerX].ToString().Contains(",")
+                                || obtenerNumerosY()[playerY].ToString().Contains(",") ?
+                                new Font("Bahnschrift Condensed", 11f) : new Font("Bahnschrift Condensed", 14f), //11 cuando , y 13 
+                                Location = obtenerNumerosX()[playerX].ToString().Contains(",")
+                                || obtenerNumerosY()[playerY].ToString().Contains(",") ?
+                                new Point(panel1.Location.X + 6, panel1.Location.Y + 21) :
+                                new Point(panel1.Location.X + 6, panel1.Location.Y + 25),
+                                BackColor = Color.Transparent,
+                                ForeColor = label2.ForeColor,
+                                TextAlign = ContentAlignment.MiddleCenter,
+                                AutoSize = false,
+                                Size = new Size(60, label2.Size.Height + 17)
+                            };
+                            numeroLabel++;
+
+                            labelPunto.Text += label2.Text;
+
+                            Controls.Add(labelPunto);
+                            listadoPuntos.Add(new
+                                PointGraph(obtenerNumerosX()[playerX], obtenerNumerosY()[playerY], labelPunto));
+                        }
+
+                        teclaPresionadaEnter = true;
+                    }
                 }
-                else if (e.KeyCode == Keys.C)
+
+                if (e.Control)
                 {
-                    zoomY = zoomY == 3 ? 0 : zoomY + 1;
-                    cargarPuntos();
-                }
-                else if (e.KeyCode == Keys.X)
-                {
-                    zoomX = zoomX == -2 ? 0 : zoomX - 1;
-                    cargarPuntos();
-                }
-                else if (e.KeyCode == Keys.V)
-                {
-                    zoomY = zoomY == -3 ? 0 : zoomY - 1;
-                    cargarPuntos();
+                    if (e.KeyCode == Keys.Z)
+                    {
+                        zoomX = zoomX == 3 ? 0 : zoomX + 1;
+                        cargarPuntos();
+                    }
+                    else if (e.KeyCode == Keys.C)
+                    {
+                        zoomY = zoomY == 3 ? 0 : zoomY + 1;
+                        cargarPuntos();
+                    }
+                    else if (e.KeyCode == Keys.X)
+                    {
+                        zoomX = zoomX == -2 ? 0 : zoomX - 1;
+                        cargarPuntos();
+                    }
+                    else if (e.KeyCode == Keys.V)
+                    {
+                        zoomY = zoomY == -3 ? 0 : zoomY - 1;
+                        cargarPuntos();
+                    }
                 }
             }
-        }
+        } 
 
         private void GraphForm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -633,13 +654,41 @@ namespace PetGraph.Views
             "\n\n{" + $"{formula}" + "}";
             //if (puntaje < 6)
             //{
-                   
+
             //}
             //else
             //{
             //    if (new Random().Next(1, 3) == 1) RandomizarPuntos();
             //    else RandomizarFuncion();
             //}
+        }
+
+        private void ResolverEcuacion()
+        {
+            double OrdenadaAlOrigen = 0;
+
+            // Verificar cuantos terminos tiene
+            // 3 TÉRMINOS
+            if (formula.Contains("+") || formula.Contains("-") && formula.Contains("="))
+            {   // X +- Y = N || X +- N = Y || Y +- N = X
+                string[] terminos = Regex.Split(formula, @"(?=[+-=])|(?<=[+-=])");
+
+                if (terminos[0].Contains("x"))
+                {
+                    // terminos[0].Any(char.IsDigit)
+                }
+                else
+                {
+                    
+                }
+
+            } // 1 TERMINO
+            else
+            {
+                string puntoRecta;
+                puntoRecta = formula.Contains("x =") 
+                    ? $"({formula.Split('=')[1].Trim()}; 0)" : $"(0; {formula.Split('=')[1].Trim()})";
+            }
         }
     }
 }
